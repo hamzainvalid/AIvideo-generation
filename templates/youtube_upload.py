@@ -4,6 +4,11 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
+from local_pipeline import local_pipeline
+
+video_path = local_pipeline()
+# Now pass video_path to your youtube_upload script
+
 
 # Define the required scopes
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
@@ -52,7 +57,7 @@ def upload_video(file_path, title, description, category_id="22", privacy="publi
 # Step 3: Run it
 if __name__ == "__main__":
     upload_video(
-        file_path=r"D:\Family\Hamza\Social Media earning\Finance\Videos\5.mp4",  # put a sample 5-10 sec MP4 in your folder
-        title="Test Upload3",
+        file_path=video_path,  # put a sample 5-10 sec MP4 in your folder
+        title="Test Upload AI with static bg",
         description="ignore"
     )
